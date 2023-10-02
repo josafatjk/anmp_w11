@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advweek4.R
 import com.example.advweek4.model.Cars
-import com.example.advweek4.model.Student
 
 class CarListAdapter(val cars:ArrayList<Cars>)
     :RecyclerView.Adapter<CarListAdapter.CarViewHolder>() {
