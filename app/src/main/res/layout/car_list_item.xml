@@ -5,17 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtResult"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgCars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/txtModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="model"
+                app:layout_constraintStart_toStartOf="@+id/txtMake"
+                app:layout_constraintTop_toBottomOf="@+id/txtMake" />
+
+            <TextView
+                android:id="@+id/txtMake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Porsche"
+                app:layout_constraintStart_toEndOf="@+id/imgCars"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="year"
+                app:layout_constraintStart_toStartOf="@+id/txtModel"
+                app:layout_constraintTop_toBottomOf="@+id/txtModel" />
+
+            <TextView
+                android:id="@+id/txtColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="color"
+                app:layout_constraintStart_toStartOf="@+id/txtYear"
+                app:layout_constraintTop_toBottomOf="@+id/txtYear" />
+
+            <TextView
+                android:id="@+id/txtEngine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="engine specs"
+                app:layout_constraintStart_toStartOf="@+id/txtColor"
+                app:layout_constraintTop_toBottomOf="@+id/txtColor" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

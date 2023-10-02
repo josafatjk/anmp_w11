@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advweek4.R
 import com.example.advweek4.model.Cars
+import com.example.advweek4.model.Specs
 
 class CarListAdapter(val cars:ArrayList<Cars>)
     :RecyclerView.Adapter<CarListAdapter.CarViewHolder>() {
@@ -19,10 +20,12 @@ class CarListAdapter(val cars:ArrayList<Cars>)
     }
 
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
-        var txtResult = holder.itemView.findViewById<TextView>(R.id.txtResult)
-        var model = cars[position].model
-        var year = cars[position].year
-        txtResult.text = "$model $year"
+        val txtModel = holder.itemView.findViewById<TextView>(R.id.txtModel)
+        val txtYear = holder.itemView.findViewById<TextView>(R.id.txtYear)
+        val txtColor = holder.itemView.findViewById<TextView>(R.id.txtColor)
+        txtModel.text = cars[position].model
+        txtYear.text = cars[position].year.toString()
+        txtColor.text = cars[position].color
     }
 
     fun updateCarList(newCars: ArrayList<Cars>) {
