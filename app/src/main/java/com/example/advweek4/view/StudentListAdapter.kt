@@ -13,14 +13,14 @@ import java.util.*
 
 class StudentListAdapter(val studentList: ArrayList<Student>):RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {
     class StudentViewHolder(view: View) : RecyclerView.ViewHolder(view){
-//            val txtID:TextView
-//            val txtName: TextView
-//            val btnDetail: Button
-//            init {
-//                txtID = view.findViewById(R.id.txtID)
-//                txtName = view.findViewById(R.id.txtName)
-//                btnDetail = view.findViewById(R.id.btnDetail)
-//    }
+            val txtID:TextView
+            val txtName: TextView
+            val btnDetail: Button
+            init {
+                txtID = view.findViewById(R.id.txtID)
+                txtName = view.findViewById(R.id.txtName)
+                btnDetail = view.findViewById(R.id.btnDetail)
+    }
 }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
@@ -30,13 +30,14 @@ class StudentListAdapter(val studentList: ArrayList<Student>):RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
-        val btnDetail = holder.itemView.findViewById<Button>(R.id.btnDetail)
         val txtID = holder.itemView.findViewById<TextView>(R.id.txtID)
         val txtName = holder.itemView.findViewById<TextView>(R.id.txtName)
+        val studentId = studentList[position].id
+
         txtID.text = studentList[position].id
         txtName.text = studentList[position].name
-        btnDetail.setOnClickListener {
-            val action = StudentListFragmentDirections.actionStudentDetail()
+        holder.btnDetail.setOnClickListener {
+            val action = StudentListFragmentDirections.actionStudentDetail(studentId.toString())
             Navigation.findNavController(it).navigate(action)
         }
 
@@ -50,4 +51,5 @@ class StudentListAdapter(val studentList: ArrayList<Student>):RecyclerView.Adapt
     override fun getItemCount(): Int {
         return studentList.size
     }
+
 }
